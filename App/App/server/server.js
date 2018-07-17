@@ -1,33 +1,51 @@
 const express = require('express');
 const app = express();
 const pg = require("pg");
-
+let testController = require('./controllers/test')
 const connectionString = "postgres://jcqmqfii:yi4Q5uWPV8Us_NnhdOQ9bMcmxpqa8-vI@stampy.db.elephantsql.com:5432/jcqmqfii";
 // @localhost:3001/postgres";
 
-app.get('/', (req, res, next) => {
-  // res.send('Default Server Page');
-  var client = new pg.Client(connectionString);
-  client.connect(function(err) {
-    if(err) {
-      return console.error('could not connect to postgres', err);
-    }
-    // client.query('SELECT NOW() AS "theTime"', function(err, result) {
-    client.query('SELECT * FROM questions AS "question"', function(err, result) {
-      if(err) {
-        return console.error('error running query', err);
-      }
-      // console.log(result.rows[0].theTime);
-      console.log(result.rows[0].question);
-      console.log(result.rows[1].question);
-      console.log(result.rows[2].question);
-      console.log(result.rows);
-      // console.log(result.rows[1].question);
-      //output: Tue Jan 15 2013 19:12:47 GMT-600 (CST)
-      client.end();
-    });
-  });
+let client = new pg.Client(connectionString);
+
+client.connect((err) => {
+  if(err) return console.error(`Couldn't connect to postgres:`, err);
+
+  // app.get('/checkTime', (req, res, next) => {
+  //   console.log('running the callback!');
+  //   client.query('SELECT NOW() AS "theTime"', function(err, result) {
+  //     if(err) {
+  //       return console.error('error running query', err);
+  //     }
+  //     console.log(result.rows[0].theTime);
+  //     //output: Tue Jan 15 2013 19:12:47 GMT-600 (CST)
+  //     client.end();
+  //   });
+  //   res.end();
+  // });
+
+  app.get('/checkTime', (req, res, next) => {
+    res.locals.client = client;
+    next();
+  }, testController.checkTime);
 })
+
+// app.get('/', (req, res, next) => {
+//   // res.send('Default Server Page');
+//   var client = new pg.Client(connectionString);
+//   client.connect(function(err) {
+//     if(err) {
+//       return console.error('could not connect to postgres', err);
+//     }
+//     client.query('SELECT NOW() AS "theTime"', function(err, result) {
+//       if(err) {
+//         return console.error('error running query', err);
+//       }
+//       console.log(result.rows[0].theTime);
+//       //output: Tue Jan 15 2013 19:12:47 GMT-600 (CST)
+//       client.end();
+//     });
+//   });
+// })
 
 app.get('/users', (req, res) => {
   console.log('made correct get test request!');
