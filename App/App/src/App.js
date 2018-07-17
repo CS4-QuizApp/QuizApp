@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { HashRouter } from 'react-router-dom';
+import Main from './components/Main';
 import Selector from './components/Selector';
 import Display from './components/Display';
 import Answer from './components/Answer';
@@ -41,9 +42,10 @@ class App extends Component {
     return (
       <HashRouter>
       <div className="App">
-        <Selector />
+        <Main questions={this.state.questions}/>
+        {/* <Selector />
         &nbsp;
-        <Display questions={this.state.questions}/>
+        <Display questions={this.state.questions}/> */}
       </div>
       </HashRouter>
     );
