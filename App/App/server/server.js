@@ -1,9 +1,8 @@
 const express = require('express');
 const app = express();
-var pg = require("pg");
+const pg = require("pg");
 let testController = require('./controllers/test')
-
-var connectionString = "postgres://jcqmqfii:yi4Q5uWPV8Us_NnhdOQ9bMcmxpqa8-vI@stampy.db.elephantsql.com:5432/jcqmqfii";
+const connectionString = "postgres://jcqmqfii:yi4Q5uWPV8Us_NnhdOQ9bMcmxpqa8-vI@stampy.db.elephantsql.com:5432/jcqmqfii";
 // @localhost:3001/postgres";
 
 let client = new pg.Client(connectionString);
