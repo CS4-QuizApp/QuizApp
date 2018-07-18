@@ -2,8 +2,40 @@
   margin: auto;
     width: 50%;
     padding: 10px;
+    color:white;
+    margin-bottom: 10px;
 }
 
+/* .login {
+  margin-top: 50px;
+  margin: auto;
+} */
+
+.textWhite{
+  color:white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.questionBox {
+  border: 1px solid black;
+  border-radius: 25px;
+  color: black;
+  background-color: beige;
+  width: 50%;
+  height: 100px;
+  margin: auto;
+  padding: 35px;
+  margin-bottom: 25px;
+}
+
+.questionBox form label{
+  color:black;
+}
+
+.button{
+  margin-top:10px;
+}
 
 
 /* ---------------------------------------------------------------------------------- */

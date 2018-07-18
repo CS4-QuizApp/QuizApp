@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
+import { Button } from 'react-bootstrap';
 
 class LoginPage extends Component {
   render() {
     return (
-      <div>
-        <h1> LOGIN PAGE! </h1>
+      <div className="login">
+        <h1 className="textWhite"> LOGIN PAGE! </h1>
         <form>
-          Username:
+          <div className="textWhite">Username:</div>
           <input type="text" name="username" value="" />
-          Password:
+          <div className="textWhite">Password:</div>
           <input type="text" name="password" value="" />
         </form>
-        <button> Login </button>
+        <Button className="button"> Login </Button>
       </div>
     );
   }
