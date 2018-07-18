@@ -25,6 +25,10 @@ question2.addDate = new Date();
 question2.solved = false;
 
 class App extends Component {
+  constructor() {
+    super();
+    this.getQuestions = this.getQuestions.bind(this);
+  }
   state = {
     questions: [question1, question2]
   }
@@ -32,10 +36,17 @@ class App extends Component {
   componentDidMount() {
   }
 
+  getQuestions() {
+    console.log('running get questions');
+    fetch('/getQuestions/helpful')
+      .then(res => res.json())
+      .then(result => this.setState({ questions: result }));
+  }
+
   render() {
     return (
       <div className="App">
-        <Selector />
+        <Selector getQuestions={this.getQuestions} />
         &nbsp;
         <Display questions={this.state.questions}/>
       </div>
@@ -48,6 +59,7 @@ class Selector extends App {
     super(props);
   }
   render() {
+    const { getQuestions } = this.props;
     return (
       <div> 
         <div> Select a category and click 'generate questions' </div>
@@ -57,7 +69,7 @@ class Selector extends App {
             <option value="System design"> System design </option>
           </select> 
         </div>
-        <button> Generate questions </button>
+        <button onClick={getQuestions}> Generate questions </button>
       </div>
     )
   }
@@ -145,7 +157,7 @@ class Answer extends Display {
     const { questions, currentIndex, nextClick } = this.props;
     let currentQuestion = questions[currentIndex];
     return (
-      <div>
+      <div> 
         &nbsp;
         <div> {currentQuestion.answer} </div>
         <div> <button> Solved </button> </div>

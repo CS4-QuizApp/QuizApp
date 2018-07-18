@@ -15,13 +15,13 @@ testController.checkTime = (req, res, next) => {
 
 testController.test = (req, res, next) => {
   console.log('running middleware');
-  client.query(`SELECT * FROM questions WHERE category='category test 3'`, function(err, result) {
-    if(err) {
-      return console.error('error running query', err);
-    }
-    console.log(result.rows);
-    client.end();
-  });
+  // client.query(`SELECT * FROM questions WHERE category='category test 3'`, function(err, result) {
+  //   if(err) {
+  //     return console.error('error running query', err);
+  //   }
+  //   console.log(result.rows);
+  //   client.end();
+  // });
   res.end();
 }
 
@@ -55,8 +55,8 @@ testController.getQuestions = (req, res, next) => {
   client.query(`SELECT * FROM questions_test WHERE category='${searchCat}';`, (err, result) => {
     if (err) return console.log('error:', err);
     console.log(result.rows);
+    res.json(result.rows);
   });
-  res.end();
 }
 
 module.exports = testController;
