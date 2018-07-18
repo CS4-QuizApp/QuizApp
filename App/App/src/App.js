@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import { HashRouter } from 'react-router-dom';
 import Main from './components/Main';
-import Selector from './components/Selector';
-import Display from './components/Display';
-import Answer from './components/Answer';
-import Prompt from './components/Prompt';
-// import './App.css';
+import './App.css';
 
 function Question() {
   this.question = null;
@@ -31,6 +27,10 @@ question2.addDate = new Date();
 question2.solved = false;
 
 class App extends Component {
+  constructor() {
+    super();
+    this.getQuestions = this.getQuestions.bind(this);
+  }
   state = {
     questions: [question1, question2]
   }
@@ -38,19 +38,23 @@ class App extends Component {
   componentDidMount() {
   }
 
+  getQuestions() {
+    console.log('running get questions');
+    fetch('/getQuestions/helpful')
+      .then(res => res.json())
+      .then(result => this.setState({ questions: result }));
+  }
+
   render() {
     return (
       <HashRouter>
       <div className="App">
-        <Main questions={this.state.questions}/>
-        {/* <Selector />
-        &nbsp;
-        <Display questions={this.state.questions}/> */}
+
+        <Main questions={this.state.questions} getQuestions={this.getQuestions}/>
       </div>
       </HashRouter>
     );
   }
 }
-
 
 export default App;
