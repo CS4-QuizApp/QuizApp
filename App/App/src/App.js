@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { HashRouter } from 'react-router-dom';
 import Main from './components/Main';
 import './App.css';
+import NavBar from './components/NavBar';
 
 function Question() {
   this.question = null;
@@ -49,7 +50,7 @@ class App extends Component {
     return (
       <HashRouter>
       <div className="App">
-
+        <NavBar/>
         <Main questions={this.state.questions} getQuestions={this.getQuestions}/>
       </div>
       </HashRouter>
