@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { HashRouter } from 'react-router-dom';
 import Main from './components/Main';
-// import './App.css';
+import './App.css';
 
 function Question() {
   this.question = null;

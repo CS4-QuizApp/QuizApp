@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Answer from './Answer.jsx';
 import Prompt from './Prompt.jsx';
+import { Button } from 'react-bootstrap';
 
 class Display extends Component {
   constructor(props) {
@@ -39,7 +40,7 @@ class Display extends Component {
       <div> 
         Question:
         <Prompt questions={questions} currentIndex={currentIndex}/>
-        <button onClick={this.showClick}> Show answer </button>
+        <Button onClick={this.showClick}> Show answer </Button>
         {answerArea}
       </div>
     )

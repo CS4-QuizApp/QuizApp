@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
+import { Button } from 'react-bootstrap';
+import { FormControl } from 'react-bootstrap';
 
 class Selector extends Component {
   render() {
     const { getQuestions } = this.props;
     return (
-      <div> 
-        <div> Select a category and click 'generate questions' </div>
+      <div className='selector'> 
+        <h2> Select a category and click 'generate questions' </h2>
         <div>
-          <select>
+        <FormControl componentClass="select" className="input-small" placeholder="select">
+        <option value="Algorithms">Algorithms</option>
+        <option value="System design">System design</option>
+      </FormControl>
+          {/* <select>
             <option value="Algorithms"> Algorithms </option>
             <option value="System design"> System design </option>
-          </select> 
+          </select>  */}
         </div>
-        <button onClick={getQuestions}> Generate questions </button>
+        <Button onClick={getQuestions}> Generate questions </Button>
       </div>
     )
   }
