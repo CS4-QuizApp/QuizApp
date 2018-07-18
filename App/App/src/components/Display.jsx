@@ -38,9 +38,9 @@ class Display extends Component {
     }
     return (
       <div> 
-        Question:
+        <div className='textWhite'> Question: </div>
         <Prompt questions={questions} currentIndex={currentIndex}/>
-        <Button onClick={this.showClick}> Show answer </Button>
+        <Button className="button" onClick={this.showClick}> Show answer </Button>
         {answerArea}
       </div>
     )

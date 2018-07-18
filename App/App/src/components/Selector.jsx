@@ -18,7 +18,7 @@ class Selector extends Component {
             <option value="System design"> System design </option>
           </select>  */}
         </div>
-        <Button onClick={getQuestions}> Generate questions </Button>
+        <Button className="button" onClick={getQuestions}> Generate questions </Button>
       </div>
     )
   }
