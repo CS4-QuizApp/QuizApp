@@ -19,9 +19,9 @@ class Prompt extends Component {
     let currentQuestion = questions[currentIndex];
     return (
       <div>
-        <div> {currentQuestion.question} </div>
+        <div className='questionBox'> {currentQuestion.question} </div>
         <form>
-          <label> <div> Response: </div>
+          <label> <div className='textWhite'> Response: </div>
             <input type="text" value={response} onChange={this.handleChange}/>
           </label>
         </form>
