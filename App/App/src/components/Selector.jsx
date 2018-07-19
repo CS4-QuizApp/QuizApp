@@ -33,16 +33,22 @@ class Selector extends Component {
         <h2> Select a category and click 'generate questions' </h2>
         <div>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <select>
           {categoryDropDown}
         </select> 
 =======
+=======
+>>>>>>> d8882f0f21288156d12b961c19a6cb82d013294d
         <FormControl componentClass="select" className="input-small" placeholder="select">
         {/* <option value="Algorithms">Algorithms</option>
         <option value="System design">System design</option> */}
         {categoryDropDown}
       </FormControl>
+<<<<<<< HEAD
 >>>>>>> 24e6df06c9559ae4f1175e096c6e4edb482a4667
+=======
+>>>>>>> d8882f0f21288156d12b961c19a6cb82d013294d
         </div>
         <Button className="button" onClick={getQuestions}> Generate questions </Button>
       </div>
