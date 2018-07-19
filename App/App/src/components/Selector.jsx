@@ -19,6 +19,10 @@ class Selector extends Component {
       });
   }
 
+  getSubcategories(category) {
+    /// write this next!
+  }
+
   render() {
     const { getQuestions } = this.props;
     const { categories, subcategories } = this.state;
