@@ -1,34 +1,34 @@
 const express = require('express');
 const app = express();
-const QC = require('./controllers/questionController')
-const TC = require('./controllers/tableController');
-const CC = require('./controllers/categoryController');
+const questionController = require('./controllers/questionController')
+const tableController = require('./controllers/tableController');
+const categoryController = require('./controllers/categoryController');
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
 
 ///////////////////// Category functions /////////////////////
 
-app.post('/addCategory', CC.addCategory);
+app.post('/addCategory', categoryController.addCategory);
 
-app.get('/getCategories', CC.getCategories);
+app.get('/getCategories', categoryController.getCategories);
 
-app.get('/getSubcategories/:category', CC.getSubcategories);
+app.get('/getSubcategories/:category', categoryController.getSubcategories);
 
 ///////////////////// Question functions /////////////////////
 
-app.get('/getQuestions/:searchCat', QC.getQuestions);
+app.get('/getQuestions/:searchCat', questionController.getQuestions);
 
-app.post('/addQuestion', QC.addQuestion);
+app.post('/addQuestion', questionController.addQuestion);
 
-app.get('/getAllQuestions', QC.getAllQuestions);
+app.get('/getAllQuestions', questionController.getAllQuestions);
 
 ///////////////////// Table functions /////////////////////
 
-// app.post('/makeTable', TC.makeTable);
+// app.post('/makeTable', tableController.makeTable);
 
-// app.post('/dropTable', TC.dropTable);
+// app.post('/dropTable', tableController.dropTable);
 
-app.get('/seeTable', TC.seeTable);
+app.get('/seeTable', tableController.seeTable);
 
 app.listen(3001, () => console.log('app is listening on port 3001'));

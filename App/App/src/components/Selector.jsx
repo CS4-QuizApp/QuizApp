@@ -17,6 +17,10 @@ class Selector extends Component {
       });
   }
 
+  getSubcategories(category) {
+    /// write this next!
+  }
+
   render() {
     const { getQuestions } = this.props;
     const { categories, subcategories } = this.state;
@@ -29,10 +33,6 @@ class Selector extends Component {
         <select>
           {categoryDropDown}
         </select> 
-          {/* <select>
-            <option value="Algorithms"> Algorithms </option>
-            <option value="System design"> System design </option>
-          </select>  */}
         </div>
         <button onClick={getQuestions}> Generate questions </button>
       </div>
