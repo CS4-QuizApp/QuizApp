@@ -14,7 +14,7 @@ class App extends Component {
       <HashRouter>
       <div className="App">
         <NavBar/>
-        <Main questions={this.state.questions} getQuestions={this.getQuestions}/>
+        <Main questions={this.questions} getQuestions={this.getQuestions}/>
       </div>
       </HashRouter>
     );

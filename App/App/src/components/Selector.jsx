@@ -29,12 +29,10 @@ class Selector extends Component {
         <h2> Select a category and click 'generate questions' </h2>
         <div>
         <FormControl componentClass="select" className="input-small" placeholder="select">
-        <option value="Algorithms">Algorithms</option>
-        <option value="System design">System design</option>
+        {/* <option value="Algorithms">Algorithms</option>
+        <option value="System design">System design</option> */}
+        {categoryDropDown}
       </FormControl>
-      {/* <select>
-          {categoryDropDown}
-      </select>  */}
         </div>
         <Button className="button" onClick={getQuestions}> Generate questions </Button>
       </div>
